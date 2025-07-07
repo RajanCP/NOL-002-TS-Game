@@ -61,4 +61,18 @@ body {
   border: 2px solid #94a3b8;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
+  resize: none;
+
+  &::placeholder {
+    color: #07388d;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  }
 }
