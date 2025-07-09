@@ -30,4 +30,11 @@ const checkParagraph = (inputParagraph: string) => {
   }
 };
 
-inputParagraph.addEventListener("input", checkParagraph);
+const handleInput = (e: Event) => {
+  const value = (e.target as HTMLTextAreaElement).value;
+  checkParagraph(value);
+};
+
+inputParagraph.addEventListener("input", handleInput);
+
+
