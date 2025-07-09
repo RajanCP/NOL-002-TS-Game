@@ -9,7 +9,8 @@ displayParagraph.innerText = sentences[0];
 
 const checkParagraph = (inputParagraph: string) => {
   const displayText = sentences[0];
-  
+
+  displayParagraph.innerText= " "
 
   for (let i = 0; i < displayText.length; i++) {
     const displayChar = displayText[i];
