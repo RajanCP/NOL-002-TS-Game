@@ -84,6 +84,34 @@ body {
   color: red;
 }
 
-.testborder {
+.incorrectborder {
   border-color: red;
+}
+
+// Accuracy section styles
+.typing-game__accuracy {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.typing-game__accuracy-value {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.typing-game__accuracy-value.low {
+  color: #e74c3c;
+}
+
+.typing-game__accuracy-value.medium {
+  color: #f39c12;
+}
+
+.typing-game__accuracy-value.high {
+  color: #2ecc71;
+}
+
+.typing-game__accuracy-value {
+  transition: color 0.3s ease-in-out;
 }

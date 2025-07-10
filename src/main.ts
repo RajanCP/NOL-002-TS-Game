@@ -2,18 +2,19 @@ import "./style.scss";
 
 const displayParagraph = document.querySelector("#paragraph-display") as HTMLDivElement;
 const inputParagraph = document.querySelector("#paragraph-input") as HTMLTextAreaElement;
-const accuracyText = document.querySelector("#accuracy-value") as HTMLSpanElement;
 
 const sentences = ["This is dummy text to copy"];
 
 displayParagraph.innerText = sentences[0];
 
 let correctCount = 0;
+let anyIncorrect = false;
 
 // checkParagraph function
 
 const checkParagraph = (inputParagraph: string) => {
   const displayText = sentences[0];
+  anyIncorrect = false;
 
   correctCount = 0;
   displayParagraph.innerText = " ";
@@ -34,31 +35,52 @@ const checkParagraph = (inputParagraph: string) => {
     } else {
       if (displayChar == inputChar) {
         span.classList.add("correct");
-        textArea.classList.remove("testborder");
         correctCount++;
-        console.log(correctCount);
       } else {
         span.classList.add("incorrect");
-        textArea.classList.add("testborder");
+        anyIncorrect = true;
       }
     }
 
     displayParagraph.append(span);
+
+    console.log(`Checking: ${displayChar} vs ${inputChar}`);
+    console.log(`anyIncorrect: ${anyIncorrect}`);
+
+    if (anyIncorrect) {
+      textArea.classList.add("incorrectborder");
+    } else {
+      textArea.classList.remove("incorrectborder");
+    }
   }
 };
 
-// checkParagraph function
+// checkAccuracy function
 
 const checkAccuracy = (correctCount: number, inputParagraph: HTMLTextAreaElement) => {
+  const accuracyValue = document.getElementById("accuracy-value") as HTMLSpanElement;
+
   if (inputParagraph.value.length === 0) {
-    accuracyText.textContent = "";
+    accuracyValue.textContent = "";
   } else {
-    const accuracy = Math.floor((correctCount / inputParagraph.value.length) * 100) + "%";
-    accuracyText.textContent = accuracy;
+    const accuracy = Math.floor((correctCount / inputParagraph.value.length) * 100);
+    accuracyValue.textContent = `${accuracy}%`;
+
+    // Apply styles based on the calculated accuracy value
+
+    accuracyValue.classList.remove("low", "medium", "high");
+
+    if (accuracy < 50) {
+      accuracyValue.classList.add("low");
+    } else if (accuracy < 90) {
+      accuracyValue.classList.add("medium");
+    } else {
+      accuracyValue.classList.add("high");
+    }
   }
 };
 
-// Event listeners for inputParagraph textarea element which will call checkParagraph and checkAccuracy functions
+// Event listeners for inputParagraph textarea element
 
 const handleInput = (e: Event) => {
   const value = (e.target as HTMLTextAreaElement).value;
