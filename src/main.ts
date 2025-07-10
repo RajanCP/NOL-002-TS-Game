@@ -19,6 +19,7 @@ const checkParagraph = (inputParagraph: string) => {
     // Creating span for each character to target individual styling
 
     const span = document.createElement("span");
+    const textArea = document.querySelector("textarea") as HTMLTextAreaElement;
     span.innerText = displayChar;
 
     if (inputChar == null) {
@@ -27,8 +28,10 @@ const checkParagraph = (inputParagraph: string) => {
     } else {
       if (displayChar == inputChar) {
         span.classList.add("correct");
+        textArea.classList.remove("testborder");
       } else {
         span.classList.add("incorrect");
+        textArea.classList.add("testborder");
       }
     }
 

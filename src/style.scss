@@ -58,7 +58,7 @@ body {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 2px solid #94a3b8;
+  border: 2px solid #000000;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   resize: none;
@@ -72,7 +72,6 @@ body {
 
   &:focus {
     outline: none;
-    border-color: #3b82f6;
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
   }
 }
@@ -83,4 +82,8 @@ body {
 
 .incorrect {
   color: red;
+}
+
+.testborder{
+  border-color: red;
 }
