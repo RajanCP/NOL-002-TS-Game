@@ -91,6 +91,8 @@ body {
 // Accuracy section styles
 .typing-game__accuracy {
   font-size: 1rem;
+  font-weight: 500;
+  color: #18055e;
   margin-bottom: 10px;
   padding: 10px;
 }
@@ -114,4 +116,12 @@ body {
 
 .typing-game__accuracy-value {
   transition: color 0.3s ease-in-out;
+}
+
+// Timer
+.typing-game__timer {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #18055e;
+  margin-right: 20px;
 }

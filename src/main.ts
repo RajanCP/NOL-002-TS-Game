@@ -3,9 +3,32 @@ import "./style.scss";
 const displayParagraph = document.querySelector("#paragraph-display") as HTMLDivElement;
 const inputParagraph = document.querySelector("#paragraph-input") as HTMLTextAreaElement;
 
-const sentences = ["This is dummy text to copy"];
+const sentences = [
+  "Writing clean, readable code not only helps machines interpret logic efficiently but also allows developers to maintain, debug, and scale applications more effectively over time.",
 
-displayParagraph.innerText = sentences[0];
+  "Debugging can feel overwhelming at first, but it’s a valuable skill that teaches you how systems behave under pressure and how to fix unexpected issues.",
+
+  "Every experienced developer started as a beginner, making mistakes, learning from failure, and gradually building their skills through practice, curiosity, and persistence over time.",
+
+  "Comments in your code should explain the reasoning behind complex logic, clarify intentions, and help others quickly understand what your function or component is doing.",
+
+  "Practicing small coding projects daily reinforces problem-solving techniques, builds confidence in language syntax, and improves your ability to break complex problems into smaller parts.",
+
+  "Understanding how data flows through each part of your program makes it easier to debug, optimize performance, and prevent common logic and memory-related errors.",
+
+  "Version control tools like Git enable developers to experiment freely, track changes over time, and collaborate safely with teams without overwriting or losing valuable progress.",
+
+  "Readable code is often better than clever one-liners, because teams need to understand and maintain it long after the original developer has moved on.",
+
+  "Thorough testing of your code helps detect bugs early, reduces technical debt, and ensures that new changes don’t unintentionally break existing functionality or edge cases.",
+
+  "Learning algorithms trains your brain to think logically, optimize performance, and structure your programs in ways that solve problems efficiently with clear, maintainable logic.",
+];
+
+const randomIndex = Math.floor(Math.random() * sentences.length);
+const currentSentence = sentences[randomIndex];
+
+displayParagraph.innerText = currentSentence;
 
 let correctCount = 0;
 let anyIncorrect = false;
@@ -13,7 +36,7 @@ let anyIncorrect = false;
 // checkParagraph function
 
 const checkParagraph = (inputParagraph: string) => {
-  const displayText = sentences[0];
+  const displayText = currentSentence;
   anyIncorrect = false;
 
   correctCount = 0;
@@ -23,7 +46,7 @@ const checkParagraph = (inputParagraph: string) => {
     const displayChar = displayText[i];
     const inputChar = inputParagraph[i];
 
-    // Creating span for each character to target individual styling
+    // Creating span and logic to target individual styling
 
     const span = document.createElement("span");
     const textArea = document.querySelector("textarea") as HTMLTextAreaElement;
@@ -46,6 +69,8 @@ const checkParagraph = (inputParagraph: string) => {
 
     console.log(`Checking: ${displayChar} vs ${inputChar}`);
     console.log(`anyIncorrect: ${anyIncorrect}`);
+
+    // Logic for border styling
 
     if (anyIncorrect) {
       textArea.classList.add("incorrectborder");
@@ -80,7 +105,9 @@ const checkAccuracy = (correctCount: number, inputParagraph: HTMLTextAreaElement
   }
 };
 
-// Event listeners for inputParagraph textarea element
+// Start Timer
+
+// Event Handler - function that is called in response to input event
 
 const handleInput = (e: Event) => {
   const value = (e.target as HTMLTextAreaElement).value;
@@ -88,5 +115,7 @@ const handleInput = (e: Event) => {
   checkParagraph(value);
   checkAccuracy(correctCount, inputParagraph);
 };
+
+// Event Listener added on user input to inputParagraph textarea element
 
 inputParagraph.addEventListener("input", handleInput);
