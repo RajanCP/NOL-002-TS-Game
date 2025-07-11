@@ -105,13 +105,29 @@ const checkAccuracy = (correctCount: number, inputParagraph: HTMLTextAreaElement
   }
 };
 
+// End game
+
+const endGame = (message: string) => {
+  const endMessage = document.getElementById("result") as HTMLDivElement;
+
+  endMessage.innerText = message;
+  inputParagraph.disabled = true;
+  setTimeout(() => {
+    location.reload();
+  }, 4000);
+};
+
 // Start Timer
 
 // Event Handler - function that is called in response to input event
 
 const handleInput = (e: Event) => {
   const value = (e.target as HTMLTextAreaElement).value;
-  // const length = (e.target as HTMLTextAreaElement).textLength
+
+  // Check if inputParagraph matches displayParagraph, end game
+  if (value === currentSentence && !anyIncorrect) {
+    endGame("You got lucky... Try the next one!");
+  }
   checkParagraph(value);
   checkAccuracy(correctCount, inputParagraph);
 };
