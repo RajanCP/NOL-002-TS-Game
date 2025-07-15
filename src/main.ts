@@ -157,6 +157,7 @@ const handleInput = (e: Event) => {
   // Check if inputParagraph matches displayParagraph, end game
   if (value === currentSentence && !anyIncorrect) {
     endGame("You got lucky... Try the next one!");
+    clearInterval(timerInterval);
   }
   checkParagraph(value);
   checkAccuracy(correctCount, inputParagraph);
