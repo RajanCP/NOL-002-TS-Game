@@ -53,29 +53,26 @@ const checkParagraph = (inputParagraph: string) => {
     span.innerText = displayChar;
 
     if (inputChar == null) {
-      span.classList.remove("incorrect");
-      span.classList.remove("correct");
+      span.classList.remove("typing-game__input--incorrect");
+      span.classList.remove("typing-game__input--correct");
     } else {
       if (displayChar == inputChar) {
-        span.classList.add("correct");
+        span.classList.add("typing-game__input--correct");
         correctCount++;
       } else {
-        span.classList.add("incorrect");
+        span.classList.add("typing-game__input--incorrect");
         anyIncorrect = true;
       }
     }
 
     displayParagraph.append(span);
 
-    console.log(`Checking: ${displayChar} vs ${inputChar}`);
-    console.log(`anyIncorrect: ${anyIncorrect}`);
-
     // Logic for border styling
 
     if (anyIncorrect) {
-      textArea.classList.add("incorrectborder");
+      textArea.classList.add("typing-game__input--incorrectborder");
     } else {
-      textArea.classList.remove("incorrectborder");
+      textArea.classList.remove("typing-game__input--incorrectborder");
     }
   }
 };
@@ -93,14 +90,14 @@ const checkAccuracy = (correctCount: number, inputParagraph: HTMLTextAreaElement
 
     // Apply styles based on the calculated accuracy value
 
-    accuracyValue.classList.remove("low", "medium", "high");
+    accuracyValue.classList.remove("typing-game__accuracy-value--low", "typing-game__accuracy-value--medium", "typing-game__accuracy-value--high");
 
     if (accuracy < 50) {
-      accuracyValue.classList.add("low");
+      accuracyValue.classList.add("typing-game__accuracy-value--low");
     } else if (accuracy < 90) {
-      accuracyValue.classList.add("medium");
+      accuracyValue.classList.add("typing-game__accuracy-value--medium");
     } else {
-      accuracyValue.classList.add("high");
+      accuracyValue.classList.add("typing-game__accuracy-value--high");
     }
   }
 };
@@ -114,7 +111,7 @@ const endGame = (message: string) => {
   inputParagraph.disabled = true;
   setTimeout(() => {
     location.reload();
-  }, 4000);
+  }, 3000);
 };
 
 // Start Timer
@@ -131,9 +128,17 @@ const startTimer = () => {
   timerInterval = setInterval(() => {
     // setInterval does not need to be called multiple times, it runs continiously until you call clearInterval with the interval ID
     timeLeft--;
-    const timerDisplay = document.getElementById("timer-display") as HTMLSpanElement;
+    const timerValue = document.getElementById("timer-value") as HTMLSpanElement;
 
-    timerDisplay.textContent = `Time Remaining: ${timeLeft}s`;
+    timerValue.textContent = `${timeLeft}s`;
+
+    if (timeLeft <= 10) {
+      timerValue.style.color = "red";
+    } else if (timeLeft <= 20) {
+      timerValue.style.color = "orange";
+    } else {
+      timerValue.style.color = "green";
+    }
 
     if (timeLeft === 0) {
       clearInterval(timerInterval);

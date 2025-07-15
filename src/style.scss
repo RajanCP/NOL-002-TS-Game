@@ -74,18 +74,18 @@ body {
     outline: none;
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
   }
-}
 
-.correct {
-  color: green;
-}
+  &--correct {
+    color: green;
+  }
 
-.incorrect {
-  color: red;
-}
+  &--incorrect {
+    color: red;
+  }
 
-.incorrectborder {
-  border-color: red;
+  &--incorrectborder {
+    border-color: red;
+  }
 }
 
 // Accuracy section styles
@@ -95,27 +95,24 @@ body {
   color: #18055e;
   margin-bottom: 10px;
   padding: 10px;
-}
 
-.typing-game__accuracy-value {
-  font-size: 1rem;
-  font-weight: bold;
-}
+  .typing-game__accuracy-value {
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
 
-.typing-game__accuracy-value.low {
-  color: #e74c3c;
-}
+    &--low {
+      color: #e74c3c;
+    }
 
-.typing-game__accuracy-value.medium {
-  color: #f39c12;
-}
+    &--medium {
+      color: #f39c12;
+    }
 
-.typing-game__accuracy-value.high {
-  color: #2ecc71;
-}
-
-.typing-game__accuracy-value {
-  transition: color 0.3s ease-in-out;
+    &--high {
+      color: #2ecc71;
+    }
+  }
 }
 
 // Timer
@@ -134,5 +131,4 @@ body {
   font-weight: 500;
   color: #18055e;
   margin-right: 20px;
-
 }

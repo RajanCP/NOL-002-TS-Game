@@ -7,3 +7,4 @@ Checklist
 [X] Only apply class names to characters in the displayParagraph that have been typed (ignore missing or untyped)
 [X] Create class styles to be added depending on accuracy score (red:low, medium:orange, high:green)
 [X]Added a border that highlights red when a character is incorrect and changed to default when the character is corrected
+[X] Added a timer that will end the game when time hits zero
