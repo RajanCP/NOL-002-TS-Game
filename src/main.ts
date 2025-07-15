@@ -119,10 +119,35 @@ const endGame = (message: string) => {
 
 // Start Timer
 
+let timeLeft = 30;
+let timerStarted = false;
+let timerInterval: number; // To store interval ID
+
+const startTimer = () => {
+  if (timerStarted) return;
+
+  timerStarted = true;
+
+  timerInterval = setInterval(() => {
+    // setInterval does not need to be called multiple times, it runs continiously until you call clearInterval with the interval ID
+    timeLeft--;
+    const timerDisplay = document.getElementById("timer-display") as HTMLSpanElement;
+
+    timerDisplay.textContent = `Time Remaining: ${timeLeft}s`;
+
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+      endGame("Time's up! Better luck next time!");
+    }
+  }, 1000);
+};
+
 // Event Handler - function that is called in response to input event
 
 const handleInput = (e: Event) => {
   const value = (e.target as HTMLTextAreaElement).value;
+
+  startTimer();
 
   // Check if inputParagraph matches displayParagraph, end game
   if (value === currentSentence && !anyIncorrect) {
