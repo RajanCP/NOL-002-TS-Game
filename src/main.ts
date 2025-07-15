@@ -6,7 +6,7 @@ const inputParagraph = document.querySelector("#paragraph-input") as HTMLTextAre
 const sentences = [
   "Writing clean, readable code not only helps machines interpret logic efficiently but also allows developers to maintain, debug, and scale applications more effectively over time.",
 
-  "Debugging can feel overwhelming at first, but it’s a valuable skill that teaches you how systems behave under pressure and how to fix unexpected issues.",
+  "Debugging can feel overwhelming at first, but it's a valuable skill that teaches you how systems behave under pressure and how to fix unexpected issues.",
 
   "Every experienced developer started as a beginner, making mistakes, learning from failure, and gradually building their skills through practice, curiosity, and persistence over time.",
 
@@ -20,7 +20,7 @@ const sentences = [
 
   "Readable code is often better than clever one-liners, because teams need to understand and maintain it long after the original developer has moved on.",
 
-  "Thorough testing of your code helps detect bugs early, reduces technical debt, and ensures that new changes don’t unintentionally break existing functionality or edge cases.",
+  "Thorough testing of your code helps detect bugs early, reduces technical debt, and ensures that new changes don't unintentionally break existing functionality or edge cases.",
 
   "Learning algorithms trains your brain to think logically, optimize performance, and structure your programs in ways that solve problems efficiently with clear, maintainable logic.",
 ];
