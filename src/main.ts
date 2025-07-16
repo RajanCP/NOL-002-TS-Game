@@ -142,7 +142,7 @@ const startTimer = () => {
 
     if (timeLeft === 0) {
       clearInterval(timerInterval);
-      endGame("Time's up! Better luck next time!");
+      endGame("Time's up!");
     }
   }, 1000);
 };
@@ -156,7 +156,7 @@ const handleInput = (e: Event) => {
 
   // Check if inputParagraph matches displayParagraph, end game
   if (value === currentSentence && !anyIncorrect) {
-    endGame("You got lucky... Try the next one!");
+    endGame("Well done!");
     clearInterval(timerInterval);
   }
   checkParagraph(value);
