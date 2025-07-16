@@ -9,10 +9,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
-     },
-  "homepage": "https://your-user.github.io/your-repo"
-,
+  },
+  "homepage": "https://RajanCP.github.io/NOL-002-TS-Game",
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "sass": "^1.89.2",
