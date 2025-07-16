@@ -2,6 +2,7 @@ import "./style.scss";
 
 const displayParagraph = document.querySelector("#paragraph-display") as HTMLDivElement;
 const inputParagraph = document.querySelector("#paragraph-input") as HTMLTextAreaElement;
+const newParaBtn = document.querySelector("#new-paragraph") as HTMLButtonElement;
 
 const sentences = [
   "Writing clean, readable code not only helps machines interpret logic efficiently but also allows developers to maintain, debug, and scale applications more effectively over time.",
@@ -25,13 +26,36 @@ const sentences = [
   "Learning algorithms trains your brain to think logically, optimize performance, and structure your programs in ways that solve problems efficiently with clear, maintainable logic.",
 ];
 
-const randomIndex = Math.floor(Math.random() * sentences.length);
-const currentSentence = sentences[randomIndex];
-
-displayParagraph.innerText = currentSentence;
-
+let currentSentence = "";
 let correctCount = 0;
 let anyIncorrect = false;
+
+function initGame() {
+  clearInterval(timerInterval);
+  timerStarted = false;
+  timeLeft = 30;
+  correctCount = 0;
+  anyIncorrect = false;
+
+  const randomIndex = Math.floor(Math.random() * sentences.length);
+  currentSentence = sentences[randomIndex];
+  displayParagraph.innerText = currentSentence;
+
+  inputParagraph.value = "";
+  inputParagraph.disabled = false;
+  inputParagraph.classList.remove("typing-game__input--incorrectborder");
+
+  const accuracyValue = document.getElementById("accuracy-value") as HTMLSpanElement;
+  accuracyValue.textContent = "";
+  accuracyValue.className = "typing-game__accuracy-value";
+
+  const endMessage = document.getElementById("result") as HTMLDivElement;
+  endMessage.innerText = "";
+
+  const timerValue = document.getElementById("timer-value") as HTMLSpanElement;
+  timerValue.textContent = `${timeLeft}s`;
+  timerValue.style.color = "green";
+}
 
 // checkParagraph function
 
@@ -106,12 +130,8 @@ const checkAccuracy = (correctCount: number, inputParagraph: HTMLTextAreaElement
 
 const endGame = (message: string) => {
   const endMessage = document.getElementById("result") as HTMLDivElement;
-
   endMessage.innerText = message;
   inputParagraph.disabled = true;
-  setTimeout(() => {
-    location.reload();
-  }, 3000);
 };
 
 // Start Timer
@@ -166,3 +186,6 @@ const handleInput = (e: Event) => {
 // Event Listener added on user input to inputParagraph textarea element
 
 inputParagraph.addEventListener("input", handleInput);
+
+newParaBtn.addEventListener("click", initGame);
+initGame();
