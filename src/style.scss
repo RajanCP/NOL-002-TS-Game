@@ -8,7 +8,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0a57ca, #cacfd4);
+  background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ body {
   &__title {
     font-size: 3rem;
     text-align: center;
-    color: #023768;
+    color: #000000;
     margin-bottom: 2rem;
     font-weight: 700;
   }
@@ -119,7 +119,7 @@ body {
 .typing-game__timer {
   font-size: 1rem;
   font-weight: 500;
-  color: #18055e;
+  color: #000000;
   margin-right: 20px;
 }
 
@@ -129,6 +129,6 @@ body {
 .typing-game__result {
   font-size: 1rem;
   font-weight: 500;
-  color: #18055e;
+  color: #000000;
   margin-right: 20px;
 }

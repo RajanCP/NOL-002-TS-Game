@@ -6,9 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+
+     },
+  "homepage": "https://your-user.github.io/your-repo"
+,
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "sass": "^1.89.2",
     "typescript": "~5.8.3",
     "vite": "^7.0.0"
