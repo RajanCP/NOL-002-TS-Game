@@ -1,3 +1,5 @@
+@use "./mixins" as *;
+
 // CSS RESET
 
 * {
@@ -156,5 +158,69 @@ body {
 
   &:hover {
     background-color: rgba(63, 94, 251, 0.418);
+  }
+}
+
+// MEDIA QUERIES
+
+// For viewports ≤ 768px (tablet and below)
+@include respond("md") {
+  .game-container {
+    padding: 0.5rem 2rem;
+  }
+  .game-container__title {
+    font-size: 2.2rem;
+  }
+  .typing-game__paragraph {
+    font-size: 1rem;
+  }
+  .typing-game__input {
+    font-size: 0.9rem;
+  }
+}
+
+// For viewports ≤ 576px (mobile)
+@include respond("sm") {
+  .game-container {
+    padding: 0rem 1rem;
+  }
+  .game-container__title {
+    font-size: 1.25rem;
+  }
+  .typing-game__paragraph {
+    font-size: 0.85rem;
+  }
+  .typing-game__input {
+    font-size: 0.85rem;
+  }
+  .typing-game__status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .typing-game__input {
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+
+    &::placeholder {
+      color: #2f2caf;
+      font-size: 0.75rem;
+    }
+  }
+  .typing-game__timer {
+    font-size: 0.85rem;
+  }
+
+  .typing-game__accuracy {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .typing-game__button {
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.8rem;
   }
 }
