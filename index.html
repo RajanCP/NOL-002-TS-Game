@@ -7,13 +7,13 @@
     <title>SpeedTyper</title>
   </head>
   <body>
-    <div class="game-container">
-      <h1 class="game-container__title">SpeedTyper</h1>
+    <div class="typing-game">
+      <h1 class="typing-game__title">SpeedTyper</h1>
       <div id="paragraph-display" class="typing-game__paragraph"></div>
       <label for="paragraph-input" class="typing-game__label"> Type the paragraph below: </label>
       <textarea id="paragraph-input" class="typing-game__input" placeholder="Start typing here..." cols="40" rows="5" autofocus></textarea>
       <div class="typing-game__status">
-        <div class="typing-game__timer">Time: <span id="timer-value">30s</span></div>
+        <div class="typing-game__timer">Time: <span id="timer-value" class="typing-game__timer-value">30s</span></div>
         <div class="typing-game__accuracy">Accuracy: <span id="accuracy-value" class="typing-game__accuracy-value"></span></div>
         <div id="result" class="typing-game__result"></div>
         <button id="new-paragraph" class="typing-game__button">Reset</button>
