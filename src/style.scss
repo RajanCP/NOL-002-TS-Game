@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
 }
 
-.game-container {
+.typing-game {
   background: #ffffff;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -165,10 +165,10 @@ body {
 
 // For viewports ≤ 768px (tablet and below)
 @include respond("md") {
-  .game-container {
+  .typing-game {
     padding: 0.5rem 2rem;
   }
-  .game-container__title {
+  .typing-game__title {
     font-size: 2.2rem;
   }
   .typing-game__paragraph {
@@ -181,10 +181,10 @@ body {
 
 // For viewports ≤ 576px (mobile)
 @include respond("sm") {
-  .game-container {
+  .typing-game {
     padding: 0rem 1rem;
   }
-  .game-container__title {
+  .typing-game__title {
     font-size: 1.25rem;
   }
   .typing-game__paragraph {
