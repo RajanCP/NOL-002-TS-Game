@@ -167,6 +167,7 @@ body {
 @include respond("md") {
   .typing-game {
     padding: 0.5rem 2rem;
+    margin: 0 2.25rem;
   }
   .typing-game__title {
     font-size: 2.2rem;
@@ -182,10 +183,11 @@ body {
 // For viewports ≤ 576px (mobile)
 @include respond("sm") {
   .typing-game {
-    padding: 0rem 1rem;
+    padding: 0.75rem 1rem;
+     margin: 0 2rem;
   }
   .typing-game__title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   .typing-game__paragraph {
     font-size: 0.85rem;
@@ -210,17 +212,20 @@ body {
     }
   }
   .typing-game__timer {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .typing-game__accuracy {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
   }
 
   .typing-game__button {
-    padding: 0.5rem 1rem;
-    font-weight: 600;
+    padding: 0.5rem 0.6rem;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+  .typing-game__label{
     font-size: 0.8rem;
   }
 }
