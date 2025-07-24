@@ -215,6 +215,19 @@ body {
   .typing-game__input {
     font-size: 0.9rem;
   }
+
+  .typing-game__status {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .typing-game__result {
+    min-height: 3ch;
+  }
 }
 
 // For viewports ≤ 576px (mobile)
@@ -232,11 +245,7 @@ body {
   .typing-game__input {
     font-size: 0.85rem;
   }
-  .typing-game__status {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+
   .typing-game__input {
     width: 100%;
     padding: 0.5rem 0.5rem;
@@ -267,6 +276,10 @@ body {
     font-size: 0.7rem;
   }
   .typing-game__label{
+    font-size: 0.8rem;
+  }
+
+  .typing-game__result{
     font-size: 0.8rem;
   }
 }
