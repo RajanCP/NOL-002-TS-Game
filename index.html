@@ -16,7 +16,7 @@
       <h1 class="typing-game__title">SpeedTyper</h1>
       <div id="paragraph-display" class="typing-game__paragraph"></div>
       <label for="paragraph-input" class="typing-game__label"> Type the paragraph below: </label>
-      <textarea id="paragraph-input" class="typing-game__input" placeholder="Start typing here..." cols="40" rows="5" autofocus></textarea>
+      <textarea id="paragraph-input" class="typing-game__input" placeholder="Start typing here..." cols="40" rows="5" autofocus disabled></textarea>
       <div class="typing-game__status">
         <div class="typing-game__timer">Time: <span id="timer-value" class="typing-game__timer-value">30s</span></div>
         <div class="typing-game__accuracy">Accuracy: <span id="accuracy-value" class="typing-game__accuracy-value"></span></div>
@@ -29,6 +29,6 @@
         <button id="new-paragraph" class="typing-game__button">Reset</button>
       </div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/main.ts" defer></script>
   </body>
 </html>

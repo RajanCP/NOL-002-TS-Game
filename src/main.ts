@@ -57,6 +57,8 @@ function initGame() {
   const timerValue = document.getElementById("timer-value") as HTMLSpanElement;
   timerValue.textContent = `${timeLeft}s`;
   timerValue.style.color = "green";
+  
+  inputParagraph.focus()
 }
 
 // checkParagraph function
