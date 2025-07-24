@@ -1,44 +1,45 @@
 import "./style.scss";
+import { easySentences, mediumSentences, hardSentences } from "./sentences";
+
 
 const displayParagraph = document.querySelector("#paragraph-display") as HTMLDivElement;
 const inputParagraph = document.querySelector("#paragraph-input") as HTMLTextAreaElement;
 const newParaBtn = document.querySelector("#new-paragraph") as HTMLButtonElement;
+const difficultySelect = document.querySelector("#difficulty-select") as HTMLSelectElement;
 
-const sentences = [
-  "Writing clean, readable code not only helps machines interpret logic efficiently but also allows developers to maintain, debug, and scale applications more effectively over time.",
 
-  "Debugging can feel overwhelming at first, but it's a valuable skill that teaches you how systems behave under pressure and how to fix unexpected issues.",
-
-  "Every experienced developer started as a beginner, making mistakes, learning from failure, and gradually building their skills through practice, curiosity, and persistence over time.",
-
-  "Comments in your code should explain the reasoning behind complex logic, clarify intentions, and help others quickly understand what your function or component is doing.",
-
-  "Practicing small coding projects daily reinforces problem-solving techniques, builds confidence in language syntax, and improves your ability to break complex problems into smaller parts.",
-
-  "Understanding how data flows through each part of your program makes it easier to debug, optimize performance, and prevent common logic and memory-related errors.",
-
-  "Version control tools like Git enable developers to experiment freely, track changes over time, and collaborate safely with teams without overwriting or losing valuable progress.",
-
-  "Readable code is often better than clever one-liners, because teams need to understand and maintain it long after the original developer has moved on.",
-
-  "Thorough testing of your code helps detect bugs early, reduces technical debt, and ensures that new changes don't unintentionally break existing functionality or edge cases.",
-
-  "Learning algorithms trains your brain to think logically, optimize performance, and structure your programs in ways that solve problems efficiently with clear, maintainable logic.",
-];
 
 let currentSentence = "";
 let correctCount = 0;
 let anyIncorrect = false;
 
+// Maps to pick difficulty level and time left based on user choice
+
+const difficultyTimeMap = new Map<string, number>([
+  ["easy", 40],
+  ["medium", 30],
+  ["hard", 25],
+]);
+
+const difficultySentenceMap = new Map<string, string[]>([
+  ["easy", easySentences],
+  ["medium", mediumSentences],
+  ["hard", hardSentences],
+]);
+
 function initGame() {
   clearInterval(timerInterval);
   timerStarted = false;
-  timeLeft = 30;
   correctCount = 0;
   anyIncorrect = false;
 
-  const randomIndex = Math.floor(Math.random() * sentences.length);
-  currentSentence = sentences[randomIndex];
+  const currentDifficulty = difficultySelect.value;
+
+  timeLeft = difficultyTimeMap.get(currentDifficulty) ?? 30;
+
+  const sentencePool = difficultySentenceMap.get(currentDifficulty) ?? mediumSentences;
+  const randomIndex = Math.floor(Math.random() * sentencePool.length);
+  currentSentence = sentencePool[randomIndex];
   displayParagraph.innerText = currentSentence;
 
   inputParagraph.value = "";
@@ -189,3 +190,6 @@ inputParagraph.addEventListener("input", handleInput);
 
 newParaBtn.addEventListener("click", initGame);
 initGame();
+
+difficultySelect.addEventListener("change", initGame);
+
