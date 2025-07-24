@@ -5,21 +5,31 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpeedTyper</title>
-    <script type="module" crossorigin src="/NOL-002-TS-Game/assets/index-BHkbFgFi.js"></script>
-    <link rel="stylesheet" crossorigin href="/NOL-002-TS-Game/assets/index-Cv8DUiYO.css">
+    <script type="module" crossorigin src="/NOL-002-TS-Game/assets/index-CsqPUBvI.js"></script>
+    <link rel="stylesheet" crossorigin href="/NOL-002-TS-Game/assets/index-BRGbkmWd.css">
   </head>
   <body>
-    <div class="game-container">
-      <h1 class="game-container__title">SpeedTyper</h1>
+    <div id="start-screen" class="typing-game__start-screen">
+      <h1 class="typing-game__title">Welcome to SpeedTyper!</h1>
+      <p class="typing-game__instructions">Type the display paragraph quickly and accurately before time runs out. <br>Press <strong>Start Game</strong> to begin!</p>
+      <button id="start-button" class="typing-game__button">Start Game</button>
+    </div>
+    <div id ="game-container" class="typing-game typing-game--blurred">
+      <h1 class="typing-game__title">SpeedTyper</h1>
       <div id="paragraph-display" class="typing-game__paragraph"></div>
       <label for="paragraph-input" class="typing-game__label"> Type the paragraph below: </label>
-      <textarea id="paragraph-input" class="typing-game__input" placeholder="Start typing here..." cols="40" rows="5" autofocus></textarea>
+      <textarea id="paragraph-input" class="typing-game__input" placeholder="Start typing here..." cols="40" rows="5" autofocus disabled></textarea>
       <div class="typing-game__status">
-        <div class="typing-game__timer">Time: <span id="timer-value">30s</span></div>
+        <div class="typing-game__timer">Time: <span id="timer-value" class="typing-game__timer-value">30s</span></div>
         <div class="typing-game__accuracy">Accuracy: <span id="accuracy-value" class="typing-game__accuracy-value"></span></div>
         <div id="result" class="typing-game__result"></div>
+        <select id="difficulty-select" class="typing-game__button typing-game__button--select">
+          <option value="easy" selected>Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
         <button id="new-paragraph" class="typing-game__button">Reset</button>
       </div>
-    </div>
+    </div>
   </body>
 </html>
