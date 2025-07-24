@@ -1,4 +1,5 @@
 import "./style.scss";
+import { setupStartScreen } from "./startscreen";
 import { easySentences, mediumSentences, hardSentences } from "./sentences";
 
 
@@ -7,7 +8,7 @@ const inputParagraph = document.querySelector("#paragraph-input") as HTMLTextAre
 const newParaBtn = document.querySelector("#new-paragraph") as HTMLButtonElement;
 const difficultySelect = document.querySelector("#difficulty-select") as HTMLSelectElement;
 
-
+setupStartScreen(initGame);
 
 let currentSentence = "";
 let correctCount = 0;

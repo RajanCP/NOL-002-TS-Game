@@ -17,6 +17,35 @@ body {
   min-height: 100vh;
 }
 
+.typing-game__start-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 2rem 2.5rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  z-index: 1000;
+
+  .typing-game__instructions {
+  font-size: 1rem;
+  margin: 1.25rem 0 2rem 0;
+  line-height: 2;
+  text-align: center;
+  letter-spacing: 0.7px;
+  }
+}
+
+.typing-game--blurred {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .typing-game {
   background: #ffffff;
   border-radius: 1rem;
