@@ -4,7 +4,12 @@ SpeedTyper is a fast-paced typing game that helps you improve both speed and acc
 
 ## How it Works
 
-Type in sentences as you race against the clock, view your accuracy % change dynamically as you progress. Any mistakes will trigger a red border around the input area, try fix it if possible! Each character is checked individually so be careful, one typo can cause trouble. The time starts on your first keystroke, once the timer runs out, click the button to try again!
+Type in sentences as you race against the clock, view your accuracy % change dynamically as you progress.  
+The time starts on your first keystroke and ends once it reaches zero (or when you win!).
+
+Up the difficulty to challenge yourself (Easy, Medium & Hard)
+
+Try to type the sentences accurately and swiftly before the time runs out!
 
 ## Prerequisites
 
